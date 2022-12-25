@@ -2,7 +2,8 @@ import { fail } from '@sveltejs/kit';
 import { Game } from './game';
 import type { PageServerLoad, Actions } from './$types';
 
-export const load = (({ cookies }) => {
+export const load = (({ cookies }) =>
+{
 	const game = new Game(cookies.get('sverdle'));
 
 	return {
@@ -29,7 +30,8 @@ export const actions = {
 	 * Modify game state in reaction to a keypress. If client-side JavaScript
 	 * is available, this will happen in the browser instead of here
 	 */
-	update: async ({ request, cookies }) => {
+	update: async ({ request, cookies }) =>
+	{
 		const game = new Game(cookies.get('sverdle'));
 
 		const data = await request.formData();
@@ -37,9 +39,11 @@ export const actions = {
 
 		const i = game.answers.length;
 
-		if (key === 'backspace') {
+		if (key === 'backspace')
+		{
 			game.guesses[i] = game.guesses[i].slice(0, -1);
-		} else {
+		} else
+		{
 			game.guesses[i] += key;
 		}
 
@@ -50,20 +54,23 @@ export const actions = {
 	 * Modify game state in reaction to a guessed word. This logic always runs on
 	 * the server, so that people can't cheat by peeking at the JavaScript
 	 */
-	enter: async ({ request, cookies }) => {
+	enter: async ({ request, cookies }) =>
+	{
 		const game = new Game(cookies.get('sverdle'));
 
 		const data = await request.formData();
-		const guess = data.getAll('guess')  as string[];
+		const guess = data.getAll('guess') as string[];
 
-		if (!game.enter(guess)) {
+		if (!game.enter(guess))
+		{
 			return fail(400, { badGuess: true });
 		}
 
 		cookies.set('sverdle', game.toString());
 	},
 
-	restart: async ({ cookies }) => {
+	restart: async ({ cookies }) =>
+	{
 		cookies.delete('sverdle');
 	}
 } satisfies Actions;

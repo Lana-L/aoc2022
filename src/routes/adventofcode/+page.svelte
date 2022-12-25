@@ -25,6 +25,9 @@ import { page } from "$app/stores";
             <li aria-current={$page.url.pathname === "/adventofcode/day3" ? "page" : undefined}>
                 <a href="/adventofcode/day3">Day 3</a>
             </li>
+            <li aria-current={$page.url.pathname === "/adventofcode/day4" ? "page" : undefined}>
+                <a href="/adventofcode/day4">Day 4</a>
+            </li>
         </ul>
     </nav>
 </div>

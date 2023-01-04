@@ -2,7 +2,7 @@
 let value = "Enter the puzzle input";
 let visible = false;
 let result1: number = 0;
-let result2 = 0;
+let result2: number = 0;
 
 function checkResults(signal: string, count: number) {
 	for (let i = 0; i <= signal.length - count; i++) {
@@ -35,7 +35,7 @@ function toggleVisible() {
 	{#if visible}
 		<p>
 			Characters to be processed before the first start-of-packet marker is detected - part1: {result1}<br />
-			Theses are the crates on top of each stack - part2: {result2}
+			Characters to be processed before the first message marker is detected - part2: {result2}
 		</p>
 	{/if}
 </div>

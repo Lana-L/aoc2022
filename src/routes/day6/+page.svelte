@@ -1,95 +1,20 @@
 <script lang="ts">
-import { element } from "svelte/internal";
-
 let value = "Enter the puzzle input";
 let visible = false;
-let result1 = "";
-let result2 = "";
+let result1: number = 0;
+let result2 = 0;
 
-function checkResults() {
-	// fullOverlapCount = 0; // re-initialise these to handle multiple button presses
-	// partialOverlapCount = 0;
-
-	let crates = value.slice(0, value.indexOf("move")); //creates a separate string for crates
-	let moves = value.slice(value.indexOf("move")); //creates a separate string for moves
-
-	const crateLines = crates.split("\n");
-	const columns1 = {
-		"1": [],
-		"2": [],
-		"3": [],
-		"4": [],
-		"5": [],
-		"6": [],
-		"7": [],
-		"8": [],
-		"9": [],
-	};
-
-	const columns2 = {
-		"1": [],
-		"2": [],
-		"3": [],
-		"4": [],
-		"5": [],
-		"6": [],
-		"7": [],
-		"8": [],
-		"9": [],
-	};
-
-	function getStringIndexForColumn(column: number): number {
-		return column * 4 - 3;
-	}
-
-	for (const row of crateLines) {
-		//for each line that is read
-		for (let i = 1; i < 10; i++) {
-			const stringIndex = getStringIndexForColumn(i);
-			if (row[stringIndex] !== " ") {
-				columns1[i].unshift(row[stringIndex]);
-				columns2[i].unshift(row[stringIndex]);
-			}
+function checkResults(signal: string, count: number) {
+	for (let i = 0; i <= signal.length - count; i++) {
+		if (new Set(signal.substring(i, i + count)).size === count) {
+			return i + count;
 		}
-	}
-
-	const moveLines = moves.split("\n");
-
-	for (const row of moveLines) {
-		const moveArray = row
-			.split(" ")
-			.filter((element) => !isNaN(Number(element)))
-			.map(Number);
-		const numMoves = moveArray[0];
-		const fromColumn = moveArray[1];
-		const toColumn = moveArray[2];
-		//for each line that is read
-		for (let i = 0; i < numMoves; i++) {
-			let item = columns1[fromColumn].pop();
-			columns1[toColumn].push(item);
-		}
-		let stack = columns2[fromColumn];
-		let removedCrates = stack.splice(stack.length - numMoves, numMoves);
-		columns2[toColumn].push(...removedCrates);
-		console.log(stack);
-	}
-
-	for (let column in columns1) {
-		let stack = columns1[column];
-		const topCrate = stack[stack.length - 1];
-		result1 += topCrate;
-	}
-
-	for (let column in columns2) {
-		let stack = columns2[column];
-		const topCrate = stack[stack.length - 1];
-		console.log(topCrate);
-		result2 += topCrate;
 	}
 }
 
 function toggleVisible() {
-	checkResults();
+	result1 = checkResults(value, 4)!;
+	result2 = checkResults(value, 14)!;
 	visible = true;
 }
 </script>
@@ -109,7 +34,7 @@ function toggleVisible() {
 	<!-- hide text until the button is pressed -->
 	{#if visible}
 		<p>
-			Theses are the crates on top of each stack - part1: {result1}<br />
+			Characters to be processed before the first start-of-packet marker is detected - part1: {result1}<br />
 			Theses are the crates on top of each stack - part2: {result2}
 		</p>
 	{/if}

@@ -1,15 +1,10 @@
 <script lang="ts">
-import { element } from "svelte/internal";
-
 let value = "Enter the puzzle input";
 let visible = false;
 let result1 = "";
 let result2 = "";
 
 function checkResults() {
-	// fullOverlapCount = 0; // re-initialise these to handle multiple button presses
-	// partialOverlapCount = 0;
-
 	let crates = value.slice(0, value.indexOf("move")); //creates a separate string for crates
 	let moves = value.slice(value.indexOf("move")); //creates a separate string for moves
 

@@ -66,7 +66,6 @@ function checkResults() {
 		let stack = columns2[fromColumn];
 		let removedCrates = stack.splice(stack.length - numMoves, numMoves);
 		columns2[toColumn].push(...removedCrates);
-		console.log(stack);
 	}
 
 	for (let column in columns1) {
@@ -78,7 +77,6 @@ function checkResults() {
 	for (let column in columns2) {
 		let stack = columns2[column];
 		const topCrate = stack[stack.length - 1];
-		console.log(topCrate);
 		result2 += topCrate;
 	}
 }

@@ -16,23 +16,23 @@ import { page } from "$app/stores";
 
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === "aoc2022/day1" ? "page" : undefined}>
-				<a href="aoc2022/day1">Day 1</a>
+			<li aria-current={$page.url.pathname === "/day1" ? "page" : undefined}>
+				<a href="/day1">Day 1</a>
 			</li>
-			<li aria-current={$page.url.pathname === "aoc2022/day2" ? "page" : undefined}>
-				<a href="aoc2022/day2">Day 2</a>
+			<li aria-current={$page.url.pathname === "/day2" ? "page" : undefined}>
+				<a href="/day2">Day 2</a>
 			</li>
-			<li aria-current={$page.url.pathname === "aoc2022/day3" ? "page" : undefined}>
-				<a href="aoc2022/day3">Day 3</a>
+			<li aria-current={$page.url.pathname === "/day3" ? "page" : undefined}>
+				<a href="/day3">Day 3</a>
 			</li>
-			<li aria-current={$page.url.pathname === "aoc2022/day4" ? "page" : undefined}>
+			<li aria-current={$page.url.pathname === "/day4" ? "page" : undefined}>
 				<a href="/day4">Day 4</a>
 			</li>
-			<li aria-current={$page.url.pathname === "aoc2022/day5" ? "page" : undefined}>
-				<a href="aoc2022/day5">Day 5</a>
+			<li aria-current={$page.url.pathname === "/day5" ? "page" : undefined}>
+				<a href="/day5">Day 5</a>
 			</li>
-			<li aria-current={$page.url.pathname === "aoc2022/day6" ? "page" : undefined}>
-				<a href="aoc2022/day6">Day 6</a>
+			<li aria-current={$page.url.pathname === "/day6" ? "page" : undefined}>
+				<a href="/day6">Day 6</a>
 			</li>
 		</ul>
 	</nav>

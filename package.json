@@ -1,26 +1,25 @@
 {
-	"name": "aoc2022",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@fontsource/fira-mono": "^5.1.0",
-		"@neoconfetti/svelte": "^2.2.1",
-		"@sveltejs/adapter-auto": "^3.2.5",
-		"@sveltejs/kit": "^2.9.0",
-		"@types/cookie": "^0.6.0",
-		"svelte": "^5.5.3",
-		"svelte-check": "^4.1.1",
-		"tslib": "^2.8.0",
-		"typescript": "^5.6.3",
-		"vite": "^6.0.2"
-	},
-	"type": "module",
-	"dependencies": {
-	}
+  "name": "aoc2022",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@fontsource/fira-mono": "^5.1.0",
+    "@neoconfetti/svelte": "^2.2.1",
+    "@sveltejs/adapter-auto": "^3.2.5",
+    "@sveltejs/kit": "^2.9.0",
+    "@types/cookie": ">=0.7.0",
+    "svelte": "^5.5.3",
+    "svelte-check": "^4.1.1",
+    "tslib": "^2.8.0",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.2"
+  },
+  "type": "module",
+  "dependencies": {}
 }
